@@ -1,0 +1,21 @@
+body{
+	/*background:linear-gradient(rgba(0, 0, 15, 0.8), rgba(0, 0, 15, 0.8));*/
+	background-color: #fff;
+}
+.navbar{
+	background:#ee6e73;
+}
+form{
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-left: 8%;
+}
+
+#search{
+	background-color: #fff;
+	height: 48px;
+}
+img{
+	max-height: 220px;
+	width: 220px;
+}

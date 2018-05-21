@@ -1,0 +1,68 @@
+{% extends 'music/base.html' %}
+{% block body %}
+{% if albums %}
+<div class="albums row" >
+  <div class="container">
+    <h4 style="margin-left:1%;color:#ee6e73;">Albums</h4>
+	{% for album in albums %}
+    <div class="col s12 m3 cards ">
+      <div class="card z-depth-2">
+        <div class="card-image">
+          <a href="{% url 'music:detail' album.id %}"><img src="{{album.album_logo }}"></a>
+        </div>
+        <div class="card-content">
+        	<h6><b>{{ album.album_title }}</b></h6>
+        	<p><i>{{album.artist}}</i></p>
+        </div>
+      </div>
+    </div>
+	{% endfor %}
+  </div>
+</div>
+{% else %}
+	<h3> No albums </h3>
+{% endif %}
+    {% if songs %}
+        <div class="row">
+          <div class="container">
+            <div class="col-sm-12">
+                <h4 style="color:#ee6e73;">Songs</h4>
+            </div>
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table striped">
+                            <thead>
+                                <tr>
+                                    <th>Song Title</th>
+                                    <th>Artist</th>
+                                    <th>genre</th>
+                                    <th>Album</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for song in songs %}
+                                    <tr>
+                                        <td>{{ song.song_title }}</td>
+                                        <td>{{ song.album.artist }}</td>
+                                        <td>
+                                           {{ song.album.genre }}
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'music:detail' song.album.id %}">
+                                                <img src="{{ song.album.album_logo.url }}" class="img-responsive" style="width: 20px; float: left; margin-right: 10px;" />
+                                            </a>
+                                            <a href="{% url 'music:detail' song.album.id %}">{{ song.album.album_title }}</a>
+                                        </td>
+    
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    {% endif %}
+{% endblock %}

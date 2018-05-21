@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Music App</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+</head>
+<body>
+
+  <nav class="navbar">
+
+  	<div class="container">
+    <div class="nav-wrapper">
+
+       <form role="search" method="get" action="{% url 'music:index' %}">
+        <div class="input-field">
+          <input id="search" type="search" placeholder="Search" name="q">
+          <label class="label-icon" for="search"><i class="material-icons" style="color: black;transform: translateY(-5px);">search</i></label>
+         </div>
+      </form>
+    </div>
+</div>
+  </nav>
+  {% block body %}
+  {% endblock %}
+</body>
+</html>
